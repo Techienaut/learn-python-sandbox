@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "docker compose build",
+      "type": "shell",
+      "command": "docker compose build",
+      "group": "build",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "docker compose down",
+      "type": "shell",
+      "command": "docker compose down",
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "docker compose run",
+      "type": "process",
+      "dependsOn": "docker compose build",
+      "command": "docker",
+      "args": ["compose", "run", "--service-ports", "app"],
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      }
+    }
+  ]
+}
